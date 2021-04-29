@@ -1,0 +1,33 @@
+<section class="login py-4">
+     <form action="/login" method="post" class="w-1/2 mx-auto shadow-lg rounded-full ">
+        <div class="flex flex-col bg-white p-10 rounded-lg shadow space-y-6">
+          <h1 class="font-bold text-xl text-center">Sign in to your account</h1>
+          {{#if messages.error}}
+            
+             <span class="text-red-500 text-small">{{messages.error}}</span>
+            
+          {{/if}}
+          <div class="flex flex-col space-y-1">
+            <label for="username">Email</label>
+
+            <input type="email" name="email" id="username" class="border-2 rounded px-3 py-2 w-full focus:outline-none focus:border-yellow-400 focus:shadow" placeholder="Email" />
+          </div>
+
+          <div class="flex flex-col space-y-1">
+            <label for="password">Password</label>
+
+            <input type="password" name="password" id="password" class="border-2 rounded px-3 py-2 w-full focus:outline-none focus:border-yellow-400 focus:shadow" placeholder="Password" />
+          </div>
+
+          <div class="relative">
+            <input type="checkbox" name="remember" id="remember" checked class="inline-block align-middle" />
+            <label class="inline-block align-middle " for="remember">Remember me</label>
+          </div>
+
+          <div class="flex flex-col-reverse sm:flex-row sm:justify-between items-center">
+            <a href="/register" class="inline-block hover:underline forgot">Don't have account?</a>
+            <button type="submit" class="text-white font-bold px-5 py-2 rounded-full focus:outline-none shadow btn-primary">Log In</button>
+          </div>
+        </div>
+      </form>
+</section>

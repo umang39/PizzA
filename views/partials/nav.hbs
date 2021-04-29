@@ -1,0 +1,36 @@
+<nav class="container mx-auto flex items-centre justify-between py-4">
+        <div>
+            <a href="/">
+            <img src="/img/logo.jpg" alt="" srcset="" height = '70' width = '70'>
+            
+            </a>
+        </div>
+        <div>
+            <ul class="flex items-centre">
+                <li class="ml-6 "><a href="/">Menu</a></li>
+               
+                {{#if user}}
+                <li class="ml-6">
+                    <form id="logout" action="/logout" method="post"></form>
+                        <a onclick="document.getElementById('logout').submit()" href= '#'>Logout</a>
+                    </li>
+                    {{else}}
+                     
+                <li class="ml-6"><a href="/register">Register</a></li>
+                <li class="ml-6"><a href="/login">Login</a></li>
+                {{/if}}
+               
+                <li class="ml-6"><a href="/cart" id= "cart" class="inline-block px-4 py-2 rounded-full flex items-centre">
+                <span id="cartCounter" class="text-white font-bold pr-2">
+                    {{#if session.cart}}
+                        
+                        {{session.cart.totalQty}}
+                        
+                    {{/if}}
+                    </span>
+                <img src="/img/cart.png" alt="" srcset="" height="30" width="30"></a></li>
+               
+            </ul>
+        </div>
+    </nav>
+    

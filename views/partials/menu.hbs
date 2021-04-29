@@ -1,0 +1,24 @@
+<section class="menu container mx-auto py-8">
+    <h1 class="text-xl font-bold mb-8">All Pizza</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2 gap-y-4">
+        {{#each pizza as |pizza|}}
+             <div class="w-full md:w-64">
+            <img src="/img/hero-pizza.png" class="mb-4 mx-auto" height="200" width="200" alt="" srcset="">
+            <div class="text-center">
+            <h2 class="mb-4 text-lg">{{pizza.name}}</h2>
+            <span class=" size py-1 px-4  rounded full uppercase text-xs">{{pizza.size}}</span>
+            <div class="flex items-center justify-around mt-6">
+                <span class="font-bold text-lg">Rs.{{pizza.price}}</span>
+                <button  class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold " id = {{pizza.id}}>
+                 
+                    <span>+</span>
+                    <span class="ml-4">Add</span>
+                </button>
+            </div>
+        </div>
+        </div>
+        {{/each}}
+       
+       
+    </div>
+</section>

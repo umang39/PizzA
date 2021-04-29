@@ -1,0 +1,51 @@
+     
+        <section class= "cart py-16">
+    <div class= "order container mx-auto xl:w-1/2">
+        <div class= "flex items-center border-b border-gray-300 pb-4">
+            <img src="/img/blackcart.png" height="50" width="50" alt="">
+            <h1 class="font-bold ml-4 text-2xl">order summary</h1>
+        </div>
+        <div class ="pizza-list">
+            {{#each session.cart.items as |key value|}}
+                <div class="flex items-center my-8">
+                <img src="/img/hero-pizza.png" class="w-24" alt="" srcset="">
+                <div class="ml-4 flex-1">
+                    <h1>{{key.item.name}}</h1>
+                    <span>{{key.item.size}}</span>
+                </div>
+                <span class="flex-1">{{ key.qty}} pcs</span>
+                <span class="font-bold ml-4 text-2xl">RS.{{key.item.price}}</span>
+            </div>
+
+
+            {{/each}}
+            
+             
+        </div>
+        <hr>
+        <div class="text-right py-4">
+            <div>
+                <span class="font-bold text-lg">Total amount</span>
+                <span class="amount text-2xl font-bold ml-2">RS.{{sum}}</span>
+            </div>
+          {{#if user}}
+               <div>
+                <form action="/orders" method="post" class="mt-12">
+                    <input type="text" name="phone"  class="border border-gray-400 p-2 w-1/2 mb-4" placeholder="phone number">
+                    <input type="text" name="address" class="border border-gray-400 p-2 w-1/2" placeholder=" Address">
+                    <br>
+                    <button type="submit" class="inline-block px-6 py-2 rounded-full btn-primary text-white font-bold mt-12">Place Order</button>
+                </form>
+
+            </div>
+          {{else}}
+                <a href="/login" class="inline-block px-6 py-2 rounded-full btn-primary text-white font-bold mt-12">Login to continue</a>
+              
+          {{/if}}
+           
+
+        </div>
+    </div>
+</section>
+
+       
